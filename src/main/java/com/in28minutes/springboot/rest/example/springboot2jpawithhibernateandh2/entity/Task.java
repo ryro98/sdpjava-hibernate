@@ -1,21 +1,17 @@
 package com.in28minutes.springboot.rest.example.springboot2jpawithhibernateandh2.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class Task {
+
     @Id
     @GeneratedValue
     private Long id;
     private String topic;
-    //Some other code
-
     @ManyToMany(mappedBy = "tasks")
-    private List<Student> students;
+    private List<Employee> employees;
 
     public Task() { }
 
@@ -36,12 +32,12 @@ public class Task {
         this.id = id;
     }
 
-    public List<Student> getEmployees() {
-        return students;
+    public List<Employee> getEmployees() {
+        return employees;
     }
 
-    public void setEmployees(List<Student> students) {
-        this.students = students;
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
     }
 
     public String getTopic() {
@@ -51,4 +47,5 @@ public class Task {
     public void setTopic(String topic) {
         this.topic = topic;
     }
+
 }
